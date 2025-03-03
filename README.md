@@ -30,11 +30,11 @@ Este proyecto es una aplicación de gestión de productos en tiempo real utiliza
 
 Para ver la lista de productos en tiempo real y gestionar productos (agregar y eliminar):
 
-   [Link](http://localhost:8080/realtimeproducts)
+http://localhost:8080/realtimeproducts
 
 Para ver la lista de productos agregados hasta el momento
 
-[Link](http://localhost:8080/home)
+http://localhost:8080/home
 
 
 
@@ -45,3 +45,6 @@ Para ver la lista de productos agregados hasta el momento
 4. views.js: Define las rutas para las vistas.
 5. home.hbs: Vista que muestra la lista de productos agregados hasta el momento.
 6. realTimeProducts.hbs: Vista que muestra la lista de productos en tiempo real y permite agregar y eliminar productos.
+
+
+# Nota: Este proyecto esta basado en el preentregable 1, Gracias
