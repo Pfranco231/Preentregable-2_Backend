@@ -1,0 +1,33 @@
+<!-- home.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Lista de Productos</h1>
+    <ul id="product-list">
+        {{#each products}}
+            <li id="product-{{this.id}}">P{{this.id}} - {{this.title}} - ${{this.price}}</li>
+        {{/each}}
+    </ul>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on('productUpdate', (products) => {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = '';
+            products.forEach(product => {
+                const li = document.createElement('li');
+                li.id = `product-${product.id}`;
+                li.textContent = `P${product.id} - ${product.title} - $${product.price}`;
+                productList.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>

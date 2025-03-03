@@ -1,0 +1,59 @@
+<!-- realTimeProducts.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Products</title>
+</head>
+<body>
+    <h1>Lista de Productos en Tiempo Real</h1>
+    <ul id="product-list">
+        {{#each products}}
+            <li id="product-{{this.id}}">{{this.id}} - {{this.title}} - ${{this.price}}</li>
+        {{/each}}
+    </ul>
+
+    <h2>Agregar Producto</h2>
+    <form id="add-product-form">
+        <input type="text" id="title" placeholder="Título" required>
+        <input type="number" id="price" placeholder="Precio" required>
+        <button type="submit">Agregar</button>
+    </form>
+
+    <h2>Borrar Producto</h2>
+    <form id="delete-product-form">
+        <input type="number" id="product-id" placeholder="ID del Producto" required>
+        <button type="submit">Borrar</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on('productUpdate', (products) => {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = '';
+            products.forEach(product => {
+                const li = document.createElement('li');
+                li.id = `product-${product.id}`;
+                li.textContent = `${product.id} - ${product.title} - $${product.price}`;
+                productList.appendChild(li);
+            });
+        });
+
+        document.getElementById('add-product-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const title = document.getElementById('title').value;
+            const price = document.getElementById('price').value;
+            socket.emit('addProduct', { title, price });
+        });
+
+        document.getElementById('delete-product-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const productId = document.getElementById('product-id').value;
+            socket.emit('deleteProduct', productId);
+        });
+    </script>
+</body>
+</html>
