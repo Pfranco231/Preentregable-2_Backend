@@ -1,12 +1,13 @@
 # Proyecto de Productos en Tiempo Real
 
-Este proyecto es una aplicación de gestión de productos en tiempo real utilizando Handlebars y Socket.io.
+Este proyecto es una aplicación de gestión de productos en tiempo real utilizando WebSockets.
 
 ## Librerías Utilizadas
 
 - [Express](https://expressjs.com/)
 - [Express-Handlebars](https://www.npmjs.com/package/express-handlebars)
 - [Socket.io](https://socket.io/)
+- [Nodemon (para produccion)](https://www.npmjs.com/package/nodemon)
 
 ## Instalación
 
@@ -47,4 +48,4 @@ http://localhost:8080/home
 6. realTimeProducts.hbs: Vista que muestra la lista de productos en tiempo real y permite agregar y eliminar productos.
 
 
-# Nota: Este proyecto esta basado en el preentregable 1, Gracias
+##### Nota: Este proyecto esta basado en el preentregable 1
