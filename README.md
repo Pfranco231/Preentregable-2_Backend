@@ -22,19 +22,19 @@ Este proyecto es una aplicación de gestión de productos en tiempo real utiliza
 
 1. Ejecuta el servidor:
 
-   ```node
-    main.js
+   ```sh
+    node main.js
 
 
 2. Abre tu navegador y navega a las siguientes direcciones:
 
 Para ver la lista de productos en tiempo real y gestionar productos (agregar y eliminar):
 
-   [text](http://localhost:8080/realtimeproducts)
+   [Link](http://localhost:8080/realtimeproducts)
 
 Para ver la lista de productos agregados hasta el momento
 
-[text](http://localhost:8080/home)
+[Link](http://localhost:8080/home)
 
 
 
